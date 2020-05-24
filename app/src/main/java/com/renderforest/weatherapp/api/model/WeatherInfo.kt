@@ -10,8 +10,6 @@ import com.google.gson.annotations.SerializedName
 class WeatherInfo {
 
     @SerializedName("id")
-    @PrimaryKey
-    @ColumnInfo(name = "id")
     var id: Long = 0
 
     @SerializedName("main")
@@ -23,6 +21,8 @@ class WeatherInfo {
     @SerializedName("icon")
     var icon: String? = null
 
-    @ForeignKey(entity = HourlyWeather::class, parentColumns = ["id"], childColumns = ["dateTime"], onDelete = ForeignKey.CASCADE)
+    @ForeignKey(entity = HourlyWeather::class, parentColumns = ["dateTime"], childColumns = ["dateTime"], onDelete = ForeignKey.CASCADE)
+    @PrimaryKey
+    @ColumnInfo(name = "dateTime")
     var dateTime: Long? = null
 }
