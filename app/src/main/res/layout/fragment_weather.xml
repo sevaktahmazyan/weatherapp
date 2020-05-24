@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_weather">
+
+    <TextView
+        android:id="@+id/tv_city"
+        style="@style/MainTextStyle"
+        android:layout_marginTop="50dp"
+        android:drawableEnd="@drawable/ic_location"
+        android:drawablePadding="5dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Yerevan" />
+
+    <TextView
+        android:id="@+id/tv_current_temperature"
+        style="@style/MainTextStyle"
+        android:layout_marginTop="16dp"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_city"
+        tools:text="28" />
+
+    <TextView
+        android:id="@+id/tv_weather_sign"
+        style="@style/MainTextStyle"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:text="&#176;C"
+        android:visibility="invisible"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/tv_current_temperature"
+        app:layout_constraintTop_toTopOf="@id/tv_current_temperature" />
+
+    <LinearLayout
+        android:id="@+id/temp_info_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/tv_current_temperature"
+        app:layout_constraintStart_toStartOf="@id/tv_current_temperature"
+        app:layout_constraintTop_toBottomOf="@id/tv_current_temperature">
+
+        <ImageView
+            android:id="@+id/iv_current_tmp_icon"
+            android:layout_width="@dimen/weather_icon_size"
+            android:layout_height="@dimen/weather_icon_size"
+            tools:src="@drawable/ic_location" />
+
+        <TextView
+            android:id="@+id/tv_current_tmp_description"
+            style="@style/MainTextStyle"
+            android:layout_marginStart="5dp"
+            tools:text="Clouds" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_hourly"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/temp_info_layout" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_daily"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/rv_hourly"
+        app:layout_constraintStart_toStartOf="@id/rv_hourly"
+        app:layout_constraintTop_toBottomOf="@id/rv_hourly" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

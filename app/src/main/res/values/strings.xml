@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="daily_weather_formatter">%d&#176; / %d&#176;</string>
+    <string name="hourly_weather_formatter">%d&#176;</string>
+</resources>
